@@ -18,6 +18,7 @@ code {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  margin-bottom: 5rem;
   
 }
 /* Applying custom font to the dropdown */
@@ -30,14 +31,13 @@ code {
   padding: 0.5rem 1rem;
   border-radius: 3rem;
   cursor: pointer;
-  margin-top: -1rem;
 }
 
 
 .container h1 {
   font-size: 3rem;
   margin-bottom: 0.1rem;
-  margin-top: -1rem; /* Adjust this value to move it up */
+  margin-top: 3rem; /* Adjust this value to move it up */
 }
 
 .container small {
@@ -54,7 +54,7 @@ code {
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  top: 610px; /* Reduced to move up, adjust as needed */
+  top: 670px; /* Reduced to move up, adjust as needed */
   font-family: Georgia, serif;
 }
 
@@ -69,13 +69,14 @@ code {
   background-color: #0C0E1B;
   border-radius: 1.5rem;
   font-family: Georgia, serif;
-  margin-top: -0.5rem;
+  margin-bottom: 1rem;
 }
 
 .active-label {
-  margin-bottom: 1.5rem;
+  margin-bottom: 5rem;
   color: #0C0E1B;
   background-color: #FE6F6B;
+
 }
 
 .timer-container {
@@ -98,8 +99,7 @@ code {
   font-size: 3.5rem;
   box-shadow: 1rem 1.25rem 1.5rem rgba(107, 19, 230, 0.6);
   font-family: Georgia, serif;
-  margin-bottom: 10rem;
-
+  margin-bottom: 25rem;
 }
 
 button {
