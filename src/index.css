@@ -1,0 +1,153 @@
+
+body {
+  margin: 0;
+  font-family: "Indie Flower", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.container {
+  color:#c9ccea;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  
+}
+/* Applying custom font to the dropdown */
+.background-select {
+  font-family: Georgia, serif;  /* Change this to your desired font */
+  font-size: 1rem;
+  color: #c9ccea;
+  background-color: #0C0E1B;
+  border: 1px solid #c9ccea;
+  padding: 0.5rem 1rem;
+  border-radius: 3rem;
+  cursor: pointer;
+  margin-top: -1rem;
+}
+
+
+.container h1 {
+  font-size: 3rem;
+  margin-bottom: 0.1rem;
+  margin-top: -1rem; /* Adjust this value to move it up */
+}
+
+.container small {
+  font-size: 1rem;
+  margin-bottom: 0.1rem;
+  margin-top: -0.5rem; /* Adjust this value to move it up */
+}
+
+
+/* Adjusting the button-wrapper to move buttons up */
+.button-wrapper {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  top: 610px; /* Reduced to move up, adjust as needed */
+  font-family: Georgia, serif;
+}
+
+
+.container .labels {
+  list-style: none;
+  display: flex;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: .8rem;
+  padding:.2rem .2rem;
+  background-color: #0C0E1B;
+  border-radius: 1.5rem;
+  font-family: Georgia, serif;
+  margin-top: -0.5rem;
+}
+
+.active-label {
+  margin-bottom: 1.5rem;
+  color: #0C0E1B;
+  background-color: #FE6F6B;
+}
+
+.timer-container {
+  display: flex;
+  flex: 0.5; /* Ensure it shrinks and grows */
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem; /* Move it up by adding a margin */
+  font-family: Georgia, serif;
+}
+.time-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 18rem;
+  width: 18rem;
+  border-radius: 9.5rem;
+  color:#efefef;
+  background: #151932;
+  font-size: 3.5rem;
+  box-shadow: 1rem 1.25rem 1.5rem rgba(107, 19, 230, 0.6);
+  font-family: Georgia, serif;
+  margin-bottom: 10rem;
+
+}
+
+button {
+  color:#efefef;
+  font-size:0.8rem;
+  padding: 0.5rem 1.2rem;
+  border:none;
+  border-radius:3rem;
+  margin:0.2rem;;
+  background:#0C0E1B;
+  min-width: 80px;
+  cursor: pointer;
+  font-family: Georgia, serif;
+  
+}
+
+.button-wrapper button.activve {
+  color: #0C0E1B;
+  background-color: #C9CCEA;
+  border: 1px solid #0C0E1B;
+  font-family: Georgia, serif;
+}
+.form-container {
+  text-align: center;
+}
+.input-wrapper {
+  margin: 1.5rem;
+}
+.input-wrapper input {
+  height: 30px;
+  width: 30px;
+  padding: 2rem;
+  background-color: #0C0E1B;
+  color:#C9CCEA;
+  border: none;
+  border-radius: 50%;
+  margin-right: 0.3rem;
+  text-align: center;
+  font-size: 14pt;
+  font-family: Georgia, serif;
+}
+.spotify-container {
+  position: fixed; /* Keep the Spotify iframe in the corner even on scroll */
+  bottom: 20px; /* Adjust distance from the bottom */
+  left: 20px; /* Adjust distance from the right */
+  z-index: 10; /* Ensure it's on top of other elements */
+  width: 250px; 
+  height: 352px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
+  border-radius: 12px; /*makes the border rounded */
+}

@@ -1,0 +1,52 @@
+.ToDo-container {
+  position: fixed; /* Keep the Spotify iframe in the corner even on scroll */
+  top: 20px; /* Adjust distance from the bottom */
+  right: 20px; /* Adjust distance from the right */
+  z-index: 10; /* Ensure it's on top of other elements */
+  width: 285px; /* Match iframe width */
+  height: 352px; /* Match iframe height */
+  background: #151932;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* drop shadow for better visibility */
+  border-radius: 12px; /* Optional rounded corners for a sleek look */
+  list-style-type: none; /* Removes the default bullet points */
+  padding: 0;  
+}
+
+h3{
+  color: #C9CCEA;;
+  font-size: 1.5rem;
+  margin: 1rem;
+  position: center; 
+  align-items: center;
+  justify-content: center;
+  text-align: center
+}
+
+.add-task
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+/* Remove bullet points from the checklist */
+.checklist {
+  list-style-type: none; /* Removes the default bullet points */
+  padding: 0.75rem;            /* Removes the default padding */
+}
+
+/* Delete Button */
+.checklist li button {
+  margin-left: 20px;
+  padding: 2px 4px;
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.checklist li button:hover {
+  background-color: #cc0000;
+}
