@@ -1,93 +1,50 @@
-import React, { useState } from "react";
-import "./ToDoList.css"; // Adjust or create your CSS for styling
+import React, { useState } from 'react';
+import './ToDoList.css'; // Ensure this file exists for styling
 
-const Checklist = () => { //functional component that renders the checklist and its behavio
-  const [tasks, setTasks] = useState([]); //An array to store the list of tasks. Each task is an object with id, text, and completed properties.
-  const [newTask, setNewTask] = useState(""); // State to track the input field
+const ToDoList = () => {
+  const [tasks, setTasks] = useState([]);
+  const [input, setInput] = useState('');
 
-  const handleAddTask = () => {
-    if (newTask.trim() === "") {
-      return; // Do nothing if the input is empty or whitespace
-    } else {
-      const newTaskObj = {
-        id: Date.now(), // Unique ID using the current timestamp
-        text: newTask,
-        completed: false,
-      };
-      const updatedTasks = [...tasks, newTaskObj];
-      setTasks(updatedTasks);
-      setNewTask(""); // Clear the input field
+  const addTask = () => {
+    if (input.trim() !== '') {
+      setTasks([...tasks, { text: input, completed: false }]);
+      setInput('');
     }
   };
-  // New delete function
-  const handleDelete = (id) => {
-    const updatedTasks = tasks.filter((task) => task.id !== id); // Remove task with matching id
+
+  const toggleComplete = (index) => {
+    const updatedTasks = tasks.map((task, i) =>
+      i === index ? { ...task, completed: !task.completed } : task
+    );
     setTasks(updatedTasks);
   };
 
-  const handleToggle = (id) => { //Toggles the completed status of a task when its checkbox is clicked.
-    const updatedTasks = tasks.map((task) => {
-      if (task.id === id) {
-        return { id: task.id, text: task.text, completed: !task.completed };
-      } else {
-        return task;
-      }
-    });
-    setTasks(updatedTasks);
+  const deleteTask = (index) => {
+    setTasks(tasks.filter((_, i) => i !== index));
   };
 
   return (
-    <div className="ToDo-container">
+    <div className="todo-container">
       <h3>To-Do List</h3>
-      
-      {/* Input Field and Add Button */}
-      <div className="add-task">
+      <div className="todo-input">
         <input
           type="text"
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-          placeholder="Enter a new task"
+          value={input}
+          placeholder="Add a task"
+          onChange={(e) => setInput(e.target.value)}
         />
-        <button onClick={handleAddTask}>Add Task</button>
+        <button onClick={addTask}>Add</button>
       </div>
-
-      {/* Checklist */}
-      <ul className="checklist">
-        {tasks.map((task) => {
-          if (task.completed) {
-            return (
-              <li key={task.id} className="completed">
-                <label>
-                  <input 
-                    type="checkbox"
-                    checked
-                    onChange={() => handleToggle(task.id)}
-                  />
-                  {task.text}
-                  </label>
-                {/* Delete Button */}
-                <button onClick={() => handleDelete(task.id)}>Delete</button>
-              </li>
-            );
-          } else {
-            return (
-              <li key={task.id}>
-                <label>
-                  <input
-                    type="checkbox"
-                    onChange={() => handleToggle(task.id)}
-                  />
-                  {task.text}
-                  </label>
-                {/* Delete Button */}
-                <button onClick={() => handleDelete(task.id)}>Delete</button>
-              </li>
-            );
-          }
-        })}
+      <ul className="todo-list">
+        {tasks.map((task, index) => (
+          <li key={index} className={task.completed ? 'completed' : ''}>
+            <span onClick={() => toggleComplete(index)}>{task.text}</span>
+            <button onClick={() => deleteTask(index)}>Delete</button>
+          </li>
+        ))}
       </ul>
     </div>
   );
 };
 
-export default Checklist;
+export default ToDoList;

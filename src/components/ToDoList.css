@@ -1,52 +1,73 @@
-.ToDo-container {
-  position: fixed; /* Keep the Spotify iframe in the corner even on scroll */
-  top: 20px; /* Adjust distance from the bottom */
-  right: 20px; /* Adjust distance from the right */
-  z-index: 10; /* Ensure it's on top of other elements */
-  width: 285px; /* Match iframe width */
-  height: 352px; /* Match iframe height */
-  background: #151932;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* drop shadow for better visibility */
-  border-radius: 12px; /* Optional rounded corners for a sleek look */
-  list-style-type: none; /* Removes the default bullet points */
-  padding: 0;  
+.todo-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(85, 38, 90, 0.813);
+  border-radius: 8px;
+  padding: 10px;
+  width: 250px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-h3{
-  color: #C9CCEA;;
-  font-size: 1.5rem;
-  margin: 1rem;
-  position: center; 
-  align-items: center;
-  justify-content: center;
-  text-align: center
+.todo-container h3 {
+  color: #c9ccea;
+  margin: 0;
+  font-size: 18px;
 }
 
-.add-task
-{
+.todo-input {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem;
+  margin: 10px 0;
 }
 
-/* Remove bullet points from the checklist */
-.checklist {
-  list-style-type: none; /* Removes the default bullet points */
-  padding: 0.75rem;            /* Removes the default padding */
+.todo-input input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-/* Delete Button */
-.checklist li button {
-  margin-left: 20px;
-  padding: 2px 4px;
-  background-color: #ff4444;
-  color: white;
+.todo-input button {
+  margin-left: 5px;
+  padding: 5px 10px;
   border: none;
+  background: #610c6e;
+  color: rgb(255, 255, 255);
   border-radius: 4px;
   cursor: pointer;
 }
 
-.checklist li button:hover {
-  background-color: #cc0000;
+.todo-input button:hover {
+  background: #0056b3;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.todo-list li.completed span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.todo-list li button {
+  background: #610c6e;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.todo-list li button:hover {
+  background: darkred;
 }
