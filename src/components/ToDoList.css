@@ -54,6 +54,10 @@
   border-bottom: 1px solid #ddd;
 }
 
+.todo-list li span {
+  color: #ffffff; /* Change the color of the task text */
+}
+
 .todo-list li.completed span {
   text-decoration: line-through;
   color: #888;

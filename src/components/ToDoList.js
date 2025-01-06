@@ -13,9 +13,12 @@ const ToDoList = () => {
   };
 
   const toggleComplete = (index) => {
-    const updatedTasks = tasks.map((task, i) =>
-      i === index ? { ...task, completed: !task.completed } : task
-    );
+    const updatedTasks = tasks.map((task, i) => {
+      if (i === index) {
+        return { ...task, completed: !task.completed };
+      }
+      return task;
+    });
     setTasks(updatedTasks);
   };
 
@@ -36,12 +39,18 @@ const ToDoList = () => {
         <button onClick={addTask}>Add</button>
       </div>
       <ul className="todo-list">
-        {tasks.map((task, index) => (
-          <li key={index} className={task.completed ? 'completed' : ''}>
-            <span onClick={() => toggleComplete(index)}>{task.text}</span>
-            <button onClick={() => deleteTask(index)}>Delete</button>
-          </li>
-        ))}
+        {tasks.map((task, index) => {
+          let taskClass = '';
+          if (task.completed) {
+            taskClass = 'completed';
+          }
+          return (
+            <li key={index} className={taskClass}>
+              <span onClick={() => toggleComplete(index)}>{task.text}</span>
+              <button onClick={() => deleteTask(index)}>Delete</button>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
