@@ -1,30 +1,32 @@
-import { useContext } from 'react'
-import {CountdownCircleTimer} from 'react-countdown-circle-timer'
-import { SettingsContext } from '../context/SettingsContext'
-const CountdownAnimation = ({key, timer, animate, children}) => {
+import React, { useContext } from 'react';
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+import { SettingsContext } from '../context/SettingsContext';
 
-  const { stopAimate } = useContext(SettingsContext)
+const CountdownAnimation = ({ key, timer, animate, children, onTimerEnd }) => {
+  const { stopAimate } = useContext(SettingsContext);
 
-    return (
-      <CountdownCircleTimer
-        key={key}
-        isPlaying={animate}
-        duration={timer * 60}
-        colors={[
-          ['#FE6F6B', 0.33],
-          ['#FE6F6B', 0.33],
-          ['#FE6F6B', 0.33],
-        ]}
-        strokeWidth={6}
-        size={220}
-        trailColor="#151932"
-        onComplete={ () => {
-          stopAimate()
-        }}
-      >
-        {children}
-      </CountdownCircleTimer>
-    )
-}
+  return (
+    <CountdownCircleTimer
+      key={key}
+      isPlaying={animate}
+      duration={timer * 60} // Convert timer value from minutes to seconds
+      colors={[
+        ['#FE6F6B', 0.33],
+        ['#FE6F6B', 0.33],
+        ['#FE6F6B', 0.33],
+      ]}
+      strokeWidth={6}
+      size={220}
+      trailColor="#151932"
+      onComplete={() => {
+        console.log('Timer completed'); // Debugging line
+        stopAimate(); // Stop animation
+        if (onTimerEnd) onTimerEnd(); // Call onTimerEnd when the timer completes
+      }}
+    >
+      {children}
+    </CountdownCircleTimer>
+  );
+};
 
-export default CountdownAnimation
+export default CountdownAnimation;

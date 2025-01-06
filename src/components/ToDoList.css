@@ -52,6 +52,8 @@
   align-items: center;
   padding: 5px 0;
   border-bottom: 1px solid #ddd;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
 .todo-list li span {

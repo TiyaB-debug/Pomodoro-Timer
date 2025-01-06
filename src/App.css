@@ -22,7 +22,10 @@ h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
 }
-
+h2 {
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
 .background-picker 
 {
   align-items: center;
@@ -68,6 +71,9 @@ button {
   min-width: 80px;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  
 }
 
 button:hover {
