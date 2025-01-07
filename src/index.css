@@ -49,6 +49,7 @@ code {
   display: flex;
   flex:2;
   align-items: center;
+  font-family: "Indie Flower", serif;
   justify-content: center;
 }
 
@@ -64,6 +65,7 @@ code {
   font-size: 3.5rem;
   margin-top: 1rem;
   box-shadow: 1rem 1.5rem 2rem rgba(107, 19, 230, 0.6)
+  
 }
 
 .button-wrapper {
@@ -107,4 +109,6 @@ button {
   margin-right: 0.3rem;
   text-align: center;
   font-size: 14pt;
+  font-family: "Indie Flower", serif;
+
 }

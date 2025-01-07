@@ -19,9 +19,8 @@ const CountdownAnimation = ({ key, timer, animate, children, onTimerEnd }) => {
       size={220}
       trailColor="#151932"
       onComplete={() => {
-        console.log('Timer completed'); // Debugging line
-        stopAimate(); // Stop animation
-        if (onTimerEnd) onTimerEnd(); // Call onTimerEnd when the timer completes
+        stopAimate();
+        if (onTimerEnd) onTimerEnd();
       }}
     >
       {children}

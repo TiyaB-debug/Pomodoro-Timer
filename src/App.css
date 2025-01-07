@@ -8,7 +8,7 @@
   align-items: center;
   position: relative;
   transition: background-image 1s ease-in-out; /* Smooth background change */
-  
+
 }
 
 .content {
@@ -31,6 +31,8 @@ h2 {
   align-items: center;
   margin-bottom: 2rem;
   text-align: center;
+  font-family: "Indie Flower", serif;
+
 }
 
 .background-select {
@@ -44,6 +46,7 @@ h2 {
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 2rem; /* Add some space at the top */
+  font-family: "Indie Flower", serif;
 
 }
 
@@ -62,7 +65,7 @@ h2 {
 
 button {
   color: #efefef;
-  font-size: 0.8rem;
+  font-size: 1rem;
   padding: 0.5rem 1.2rem;
   border: none;
   border-radius: 3rem;
@@ -71,8 +74,8 @@ button {
   min-width: 80px;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: "Indie Flower", serif;
+
   
 }
 

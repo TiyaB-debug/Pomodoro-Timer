@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Button from './components/Button';
 import CountdownAnimation from './components/CountdownAnimation';
 import SetPomodoro from './components/SetPomodoro';
@@ -10,26 +10,13 @@ import './App.css';
 const App = () => {
   const [background, setBackground] = useState(null); // Default to no background
   const [selected, setSelected] = useState(false); // Track if a background has been selected
-  const {
-    pomodoro,
-    executing,
-    startAnimate,
-    children,
-    startTimer,
-    pauseTimer,
-    updateExecute,
-    setCurrentTimer,
-    SettingsBtn,
-  } = useContext(SettingsContext);
+  const { pomodoro, executing, startAnimate, children, startTimer, pauseTimer, updateExecute, setCurrentTimer, SettingsBtn } = useContext(SettingsContext);
 
-  // This is the function that will play the sound
   const handleTimerEnd = () => {
     console.log('Timer ended! Playing sound...');
-    const audio = new Audio('/Users/tiabordia/Desktop/Personal Projects/Pomodoro-Timer/public/ding.mp3');
-    audio.load();  // Explicitly load the audio file
-    audio.play().then(() => console.log('Audio played')).catch((error) => console.error('Audio play error:', error));
+    const audio = new Audio('/ding.mp3'); // Adjust the path if needed
+    audio.play().catch((error) => console.error('Audio play error:', error));
   };
-  
 
   useEffect(() => {
     updateExecute(executing);
@@ -56,10 +43,7 @@ const App = () => {
   }
 
   return (
-    <div
-      className="app-container"
-      style={containerStyles}
-    >
+    <div className="app-container" style={containerStyles}>
       {/* Add To-Do List component in the top right */}
       <ToDoList /> {/* This will render the To-Do list in your app */}
 
@@ -74,65 +58,40 @@ const App = () => {
           <>
             <ul className="labels">
               <li>
-                <Button
-                  title="Work"
-                  activeClass={executing.active === 'work'}
-                  _callback={() => setCurrentTimer('work')}
-                />
+                <Button title="Work" activeClass={executing.active === 'work'} _callback={() => setCurrentTimer('work')} />
               </li>
               <li>
-                <Button
-                  title="Short Break"
-                  activeClass={executing.active === 'short'}
-                  _callback={() => setCurrentTimer('short')}
-                />
+                <Button title="Short Break" activeClass={executing.active === 'short'} _callback={() => setCurrentTimer('short')} />
               </li>
               <li>
-                <Button
-                  title="Long Break"
-                  activeClass={executing.active === 'long'}
-                  _callback={() => setCurrentTimer('long')}
-                />
+                <Button title="Long Break" activeClass={executing.active === 'long'} _callback={() => setCurrentTimer('long')} />
               </li>
-            </ul> 
+            </ul>
             <Button title="Settings" _callback={SettingsBtn} />
             <div className="timer-container">
               <div className="time-wrapper">
                 <CountdownAnimation
                   key={pomodoro}
-                  timer={pomodoro}
-                  animate={startAnimate}
-                  onTimerEnd={handleTimerEnd} // Pass the handleTimerEnd function here
+                  timer={pomodoro} // Pass the timer value in minutes
+                  animate={startAnimate} // Pass animation state
+                  onTimerEnd={handleTimerEnd} // Pass the callback for when the timer ends
                 >
                   {children}
                 </CountdownAnimation>
               </div>
             </div>
             <div className="button-wrapper">
-              <Button
-                title="Start"
-                activeClass={!startAnimate && 'active'} // If `!startAnimate`, add 'active', else `undefined`
-                _callback={startTimer} 
-              />
-              <Button
-                title="Pause"
-                activeClass={startAnimate && 'active'} // If `startAnimate`, add 'active', else `undefined`
-                _callback={pauseTimer}
-              />
+              <Button title="Start" activeClass={!startAnimate && 'active'} _callback={startTimer} />
+              <Button title="Pause" activeClass={startAnimate && 'active'} _callback={pauseTimer} />
             </div>
+            
             {/* Spotify Embed */}
-            <div className="spotify-container">
-              <iframe
-                style={{ borderRadius: '12px' }}
-                src="https://open.spotify.com/embed/playlist/5z9CdKSqJjAt30rhTlRDZX?utm_source=generator"
-                width="250"
-                height="352"
-                frameBorder="0"
-                allowFullScreen=""
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-              ></iframe>
-            </div>
+          <div className="spotify-container">
+            <iframe
+              style={{ borderRadius: '12px' }}
+              src="https://open.spotify.com/embed/playlist/5z9CdKSqJjAt30rhTlRDZX?utm_source=generator" width="250" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"
+            ></iframe>
+          </div>
           </>
         ) : (
           <SetPomodoro />
